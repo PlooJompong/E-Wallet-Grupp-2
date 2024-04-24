@@ -1,7 +1,3 @@
-const CardForm = () => {
-  return (
-    <div>CardForm</div>
-  )
-}
-
-export default CardForm
+export const CardForm = () => {
+  return <div>CardForm</div>;
+};

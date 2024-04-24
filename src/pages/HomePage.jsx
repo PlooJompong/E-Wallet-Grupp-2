@@ -1,50 +1,16 @@
-import { Link } from "react-router-dom";
-import { Top } from "../components/Top";
-import { Card } from "../components/Card/Card.jsx";
+/* eslint-disable no-unused-vars */
+import { Link } from 'react-router-dom';
+import { Top } from '../components/Top.jsx';
+import { CardStacks } from '../components/CardStacks/CardStacks.jsx';
+import { CARD_DETAILS } from '../data/cardDetails.js';
 
 export const HomePage = () => {
   return (
     <>
-      <Top title={"E-Wallet"} active={"Active Card"} />
-      <Card
-        cardColor={"orangeContainer"}
-        cardNumber={"1234 5678 9101 1123"}
-        chip={"chip"}
-        blipp={"blipp_dark"}
-        vendor={"bitcoin"}
-        name={"Rachel Richter"}
-        dates={"12/24"}
-      />
+      <Top title={'E-Wallet'} activeCard={'Active Card'} />
 
-      <Card
-        cardColor={"blackContainer"}
-        cardNumber={"8502 2394 9603 6920"}
-        chip={"chip"}
-        blipp={"blipp_light"}
-        vendor={"ninja"}
-        name={"Rachel Richter"}
-        dates={"12/24"}
-      />
+      <CardStacks cardDetails={CARD_DETAILS} />
 
-      <Card
-        cardColor={"purpleContainer"}
-        cardNumber={"4325 0583 5891 5892"}
-        chip={"chip"}
-        blipp={"blipp_dark"}
-        vendor={"chain"}
-        name={"Rachel Richter"}
-        dates={"12/24"}
-      />
-
-      <Card
-        cardColor={"redContainer"}
-        cardNumber={"2904 2349 5003 0928"}
-        chip={"chip"}
-        blipp={"blipp_dark"}
-        vendor={"evil"}
-        name={"Rachel Richter"}
-        dates={"12/24"}
-      />
       <Link to="/addCard">
         <button>Go to AddCard</button>
       </Link>

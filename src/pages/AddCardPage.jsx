@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Top } from '../components/Top.jsx';
 
-export const AddCardPage = () =>  {
+export const AddCardPage = () => {
   return (
     <>
-      <h1>AddCard</h1>
+      <Top title={'Add A New  Bank Card'} activeCard={'New Card'} />
       <Link to="/">
         <button>Go to Home</button>
       </Link>
     </>
   );
-}
-
+};

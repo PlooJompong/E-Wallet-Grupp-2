@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
 :root {
   --font-size-text: 0.75rem;
   --font-size-title: 1.125rem;
-  --ff-primary: "PT Mono", monospace, sans-serif;
+  --ff-primary: 'PT Mono', monospace, sans-serif;
 }
 
 * {
