@@ -1,5 +1,8 @@
-function Top() {
-  return <div>Top</div>;
+export function Top({ title, active }) {
+  return (
+    <>
+      <h1> {title} </h1>
+      <p> {active} </p>
+    </>
+  );
 }
-
-export default Top;

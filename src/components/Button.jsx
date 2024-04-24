@@ -1,5 +1,6 @@
-function Button() {
-  return <div>Button</div>;
+export const Button = () => {
+  return (
+    <div>Button</div>
+  )
 }
 
-export default Button;

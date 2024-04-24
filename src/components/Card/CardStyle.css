@@ -1,0 +1,79 @@
+.card {
+  width: 382px;
+  height: 241px;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.orangeContainer {
+  background-color: #ffae34;
+}
+
+.blackContainer {
+  background-color: #222222;
+  color: #fff;
+}
+
+.purpleContainer {
+  background-color: #8b58f9;
+}
+
+.redContainer {
+  background-color: #f33355;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons-flex-dir {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.blipp {
+  width: 44px;
+  height: 44px;
+}
+
+.chip {
+  width: 50px;
+  height: 40px;
+}
+
+.vendor {
+  width: 30px;
+  height: 35px;
+}
+
+.card-section {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.card-number {
+  font-size: 1.813rem;
+  text-align: center;
+}
+.cardholder-name {
+  font-size: var(--font-size-text);
+  text-transform: uppercase;
+}
+.card-name {
+  font-size: var(--font-size-title);
+  text-transform: uppercase;
+}
+
+.valid-date {
+  font-size: var(--font-size-text);
+  text-transform: uppercase;
+}
+
+.dates {
+  font-size: var(--font-size-title);
+  text-align: end;
+}

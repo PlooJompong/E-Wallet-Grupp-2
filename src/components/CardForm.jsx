@@ -1,5 +1,7 @@
-function CardForm() {
-  return <div>CardForm</div>;
+const CardForm = () => {
+  return (
+    <div>CardForm</div>
+  )
 }
 
-export default CardForm;
+export default CardForm
