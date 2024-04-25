@@ -7,20 +7,28 @@
 }
 
 .orangeContainer {
-  background-color: #ffae34;
+  /* background-color: #ffae34; */
+  background: linear-gradient(to right, #f5c071, #e7ab51, #f39912);
+  /* background: linear-gradient(to left, #f5c071, #e7ab51, #f39912); */
 }
 
 .blackContainer {
-  background-color: #222222;
+  /* background-color: #222222; */
+  background: linear-gradient(to right, #4e4e4e, #333333, #1a1919);
+  /* background: linear-gradient(to left, #4e4e4e, #333333, #1a1919); */
   color: #fff;
 }
 
 .purpleContainer {
-  background-color: #8b58f9;
+  /* background-color: #8b58f9; */
+  background: linear-gradient(to right, #a680f7, #8858f0, #773cf5);
+  /* background: linear-gradient(to left, #a680f7, #8858f0, #773cf5); */
 }
 
 .redContainer {
-  background-color: #f33355;
+  /* background-color: #f33355; */
+  background: linear-gradient(to right, #f08094, #f85a77, #f33355);
+  /* background: linear-gradient(to left, #f08094, #f85a77, #f33355); */
 }
 
 .icons {
@@ -31,7 +39,6 @@
 .icons-flex-dir {
   display: flex;
   flex-direction: column;
-  padding: 10px;
 }
 
 .blipp {
@@ -58,22 +65,19 @@
 .card-number {
   font-size: 1.813rem;
   text-align: center;
-}
-.cardholder-name {
-  font-size: var(--font-size-text);
-  text-transform: uppercase;
-}
-.card-name {
-  font-size: var(--font-size-title);
-  text-transform: uppercase;
+  margin-top: 20px;
 }
 
-.valid-date {
-  font-size: var(--font-size-text);
-  text-transform: uppercase;
+.card-dates {
+  text-align: end;
 }
 
+.card-name,
 .dates {
   font-size: var(--font-size-title);
-  text-align: end;
+}
+
+.cardholder-name,
+.valid-date {
+  font-size: var(--font-size-text);
 }

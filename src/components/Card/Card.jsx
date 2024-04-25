@@ -10,6 +10,7 @@ export const Card = ({
   name,
   dates,
   onClick,
+  index,
 }) => {
   return (
     <div className={`card ${cardColor}`} onClick={onClick}>
@@ -18,11 +19,10 @@ export const Card = ({
           <img className="blipp" src={blipp} alt="blipp icon" />
           <img className="chip" src={chip} alt="chip icon" />
         </div>
+        <p>index: {index}</p>
         <img className="vendor" src={vendor} alt="vendor icon" />
       </section>
-
       <p className="card-number">{cardNumber}</p>
-
       <section className="card-info-section">
         <div className="card-holder">
           <p className="cardholder-name">cardholder name</p>

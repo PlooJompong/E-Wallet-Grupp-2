@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { Link } from 'react-router-dom';
-import { Top } from '../components/Top.jsx';
+import { Top } from '../components/Top/Top.jsx';
 import { CardStacks } from '../components/CardStacks/CardStacks.jsx';
+import { Button } from '../components/Button/Button.jsx';
 
 export const HomePage = () => {
   return (
@@ -11,7 +12,7 @@ export const HomePage = () => {
       <CardStacks />
 
       <Link to="/addCard">
-        <button>Go to AddCard</button>
+        <Button>Add A New Card</Button>
       </Link>
     </>
   );

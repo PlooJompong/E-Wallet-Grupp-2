@@ -1,0 +1,17 @@
+.cardstack > :first-child {
+  margin-bottom: 50px;
+  box-shadow: 5px 5px 10px #383838;
+}
+
+.cardstack > :nth-child(n + 2) {
+  box-shadow: 5px 5px 10px #b8b7b7;
+}
+
+.cardstack > :nth-child(n + 3) {
+  position: relative;
+  margin-top: -52%;
+}
+
+.cardstack > :last-child {
+  margin-bottom: 50px;
+}

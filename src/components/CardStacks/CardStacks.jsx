@@ -17,10 +17,23 @@ export const CardStacks = () => {
   };
 
   return (
-    <>
+    <div className="cardstack">
       {cards.map((card, index) => (
-        <Card key={index} {...card} onClick={() => moveCardToTop(index)} />
+        <Card
+          key={index}
+          {...card}
+          index={index}
+          onClick={() => moveCardToTop(index)}
+        />
       ))}
-    </>
+    </div>
   );
 };
+
+// {
+//    <Card
+// key={cards.length - 1}
+// {...cards[cards.length - 1]}
+// onClick={() => moveCardToTop(cards.length - 1)}
+// />
+// }
