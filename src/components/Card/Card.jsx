@@ -1,4 +1,5 @@
-import "./CardStyle.css";
+/* eslint-disable react/prop-types */
+import './CardStyles.css';
 
 export const Card = ({
   cardColor,
@@ -8,32 +9,21 @@ export const Card = ({
   cardNumber,
   name,
   dates,
+  onClick,
 }) => {
   return (
-    <div className={`card ${cardColor}`}>
-      <div className="icons">
+    <div className={`card ${cardColor}`} onClick={onClick}>
+      <section className="icons">
         <div className="icons-flex-dir">
-          <img
-            className="blipp"
-            src={`../../public/${blipp}.png`}
-            alt="blipp icon"
-          />
-          <img
-            className="chip"
-            src={`../../public/${chip}.png`}
-            alt="chip icon"
-          />
+          <img className="blipp" src={blipp} alt="blipp icon" />
+          <img className="chip" src={chip} alt="chip icon" />
         </div>
-        <img
-          className="vendor"
-          src={`../../public/${vendor}.png`}
-          alt="vendor icon"
-        />
-      </div>
+        <img className="vendor" src={vendor} alt="vendor icon" />
+      </section>
 
       <p className="card-number">{cardNumber}</p>
 
-      <section className="card-section">
+      <section className="card-info-section">
         <div className="card-holder">
           <p className="cardholder-name">cardholder name</p>
           <p className="card-name">{name}</p>
