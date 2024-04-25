@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { Card } from '../Card/Card.jsx';
+import { CARD_DETAILS } from '../../data/cardDetails.js';
 import './CardStacksStyles.css';
 
-export const CardStacks = ({ cardDetails }) => {
-  const [cards, setCards] = useState(cardDetails);
+export const CardStacks = () => {
+  const [cards, setCards] = useState(CARD_DETAILS);
 
   console.log(cards);
 
@@ -18,18 +19,7 @@ export const CardStacks = ({ cardDetails }) => {
   return (
     <>
       {cards.map((card, index) => (
-        <Card
-          key={index}
-          {...card}
-          onClick={() => moveCardToTop(index)}
-          // cardColor={card.cardColor}
-          // cardNumber={card.cardNumber}
-          // chip={card.chip}
-          // blipp={card.blipp}
-          // vendor={card.vendor}
-          // name={card.name}
-          // dates={card.dates}
-        />
+        <Card key={index} {...card} onClick={() => moveCardToTop(index)} />
       ))}
     </>
   );
