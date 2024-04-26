@@ -22,6 +22,7 @@ export const CARD_DETAILS = [
     chip: Chip,
     blipp: BlippDark,
     vendor: Bitcoin,
+    // vendor: "./",
     name: "Rachel Richter",
     dates: "12/24",
   },

@@ -10,8 +10,7 @@ export const CardForm = () => {
   const [number, setNumber] = useState();
   const [name, setName] = useState();
   const [date, setDate] = useState();
-  const [ccv, setCcv] = useState();
-  const [vendor, setVendor] = useState("");
+  const [vendor, setVendor] = useState(0);
 
   const handleCardnumber = (e) => {
     const number = e.target.value;
@@ -31,30 +30,31 @@ export const CardForm = () => {
     // console.log(date);
   };
 
-  const handleCcv = (e) => {
-    const ccv = e.target.value;
-    setCcv(ccv);
-    // console.log(ccv);
-  };
-
-  const handleVendor = (e) => {
-    setVendor(e.target.value);
-    console.log(vendor);
-  };
+  function handleVendor(e) {
+    if (e.target.value === "0") {
+      setVendor(0);
+    } else if (e.target.value === "1") {
+      setVendor(1);
+    } else if (e.target.value === "2") {
+      setVendor(2);
+    } else if (e.target.value === "3") {
+      setVendor(3);
+    }
+  }
 
   const handleAddCard = () => {
-    // Skapa ett nytt kortobjekt med den insamlade informationen från formuläret
+    const defaultCard = CARD_DETAILS[vendor];
+
     const newCardData = {
-      cardColor: "newCard", // Fyll i önskade värden härifrån (t.ex. via state)
+      cardColor: defaultCard.cardColor,
       cardNumber: number,
-      chip: "", // Fyll i önskade värden härifrån (t.ex. via state)
-      blipp: "", // Fyll i önskade värden härifrån (t.ex. via state)
-      vendor: "", // Fyll i önskade värden härifrån (t.ex. via state)
+      chip: defaultCard.chip,
+      blipp: defaultCard.blipp,
+      vendor: defaultCard.vendor,
       name: name,
       dates: date,
     };
 
-    // Anropa updateCardDetails-funktionen för att lägga till det nya kortet
     updateCardDetails(newCardData);
   };
 
@@ -80,17 +80,16 @@ export const CardForm = () => {
 
           <div className="card-small">
             <label>ccv</label>
-            <input type="number" onChange={handleCcv} required />
+            <input type="number" required />
           </div>
         </div>
 
         <label>vendor</label>
         <select defaultValue={vendor} onChange={handleVendor} required>
-          <option value="" disabled hidden></option>
-          <option value="bitcoin_bank">Bitcoin</option>
-          <option value="ninja_bank">Ninja</option>
-          <option value="block_chain">Blockchain</option>
-          <option value="evil_corp">Evil</option>
+          <option value="0">Bitcoin</option>
+          <option value="1">Ninja</option>
+          <option value="2">Blockchain</option>
+          <option value="3">Evil</option>
         </select>
       </form>
 
