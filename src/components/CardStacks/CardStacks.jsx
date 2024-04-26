@@ -7,7 +7,7 @@ import './CardStacksStyles.css';
 export const CardStacks = () => {
   const [cards, setCards] = useState(CARD_DETAILS);
 
-  console.log(cards);
+  // console.log(cards);
 
   const moveCardToTop = (index) => {
     const updatedCards = [...cards];
@@ -29,11 +29,3 @@ export const CardStacks = () => {
     </div>
   );
 };
-
-// {
-//    <Card
-// key={cards.length - 1}
-// {...cards[cards.length - 1]}
-// onClick={() => moveCardToTop(cards.length - 1)}
-// />
-// }
