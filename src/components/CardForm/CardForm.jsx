@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Button } from '../Button/Button';
-import { CARD_DETAILS } from '../../data/cardDetails';
-import './CardFormStyles.css';
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Button } from "../Button/Button";
+import { CARD_DETAILS } from "../../data/cardDetails";
+import "./CardFormStyles.css";
+import { updateCardDetails } from "../../data/cardDetails";
 
 export const CardForm = () => {
   const [number, setNumber] = useState();
   const [name, setName] = useState();
   const [date, setDate] = useState();
   const [ccv, setCcv] = useState();
-  const [vendor, setVendor] = useState('');
+  const [vendor, setVendor] = useState("");
 
   const handleCardnumber = (e) => {
     const number = e.target.value;
@@ -42,20 +43,19 @@ export const CardForm = () => {
   };
 
   const handleAddCard = () => {
-    const newCard = {
-      cardColor: 'orangeContainer', // You might want to generate this dynamically
+    // Skapa ett nytt kortobjekt med den insamlade informationen från formuläret
+    const newCardData = {
+      cardColor: "newCard", // Fyll i önskade värden härifrån (t.ex. via state)
       cardNumber: number,
-      // chip: Chip, // Assuming Chip is imported from somewhere
-      // blipp: BlippDark, // Assuming BlippDark is imported from somewhere
-      vendor: vendor,
+      chip: "", // Fyll i önskade värden härifrån (t.ex. via state)
+      blipp: "", // Fyll i önskade värden härifrån (t.ex. via state)
+      vendor: "", // Fyll i önskade värden härifrån (t.ex. via state)
       name: name,
       dates: date,
     };
-    // Create a new array by spreading the existing CARD_DETAILS and adding the new card
-    const updatedCardDetails = [...CARD_DETAILS, newCard];
-    // Update the CARD_DETAILS array
-    // You may want to use state management like Redux or Context API for this in a real application
-    // console.log(updatedCardDetails);
+
+    // Anropa updateCardDetails-funktionen för att lägga till det nya kortet
+    updateCardDetails(newCardData);
   };
 
   return (
@@ -94,10 +94,8 @@ export const CardForm = () => {
         </select>
       </form>
 
-      <Link to="/">
-        <Button className="btn btn-dark" onClick={handleAddCard}>
-          Add Card
-        </Button>
+      <Link to="/" onClick={handleAddCard}>
+        <Button className="btn btn-dark">Add Card</Button>
       </Link>
     </>
   );
