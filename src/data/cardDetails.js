@@ -53,13 +53,4 @@ export const CARD_DETAILS = [
     name: "Rachel Richter",
     dates: "12/24",
   },
-  // {
-  //   cardColor: "orangeContainer",
-  //   cardNumber: "2904 2349 5003 0928",
-  //   chip: Chip,
-  //   blipp: BlippLight,
-  //   vendor: Evil,
-  //   name: "Rachel Richter",
-  //   dates: "12/24",
-  // },
 ];

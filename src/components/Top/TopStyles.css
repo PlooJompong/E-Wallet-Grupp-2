@@ -7,7 +7,7 @@
   font-family: var(--ff-top);
   font-size: 2.188rem;
   font-weight: 700;
-  padding: 40px;
+  padding: 40px 0;
   text-wrap: balance;
   line-height: 35px;
 }
