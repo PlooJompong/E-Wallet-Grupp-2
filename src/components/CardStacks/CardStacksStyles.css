@@ -1,25 +1,22 @@
+/* Styling för element med klassen .cardstack */
 .cardstack {
-  overflow-y: auto;
-  height: 667px;
+  overflow-y: auto; /* Tillåter vertikal scrollning om innehållet är för stort för att visas */
+  height: 625px; /* Fastställer höjden på .cardstack till 625px */
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  margin-bottom: 30px;
 }
 
 .cardstack > :first-child {
-  margin-bottom: 50px;
-  box-shadow: 5px 5px 10px #383838;
+  margin-bottom: 40px; /* Extra mellanrum nedåt efter det första elementet */
+  box-shadow: 5px 5px 10px #383838; /* Lägger till en skugga på elementet */
 }
 
+/* Stilar för element från och med det andra barnet under .cardstack */
 .cardstack > :nth-child(n + 2) {
-  box-shadow: 2px 10px 10px #a8a8a8, inset 1px 1px 3px #ffffff;
+  box-shadow: 2px 10px 10px #a8a8a8, inset 1px 1px 3px #ffffff; /* Lägger till en skugga och en inre skugga */
 }
 
 .cardstack > :nth-child(n + 3) {
-  position: relative;
-  margin-top: -47%;
-}
-
-.cardstack > :last-child {
-  margin-bottom: 15px;
+  position: relative; /* Ändrar positionen till relativ för det tredje barnet och framtida barn */
+  margin-top: -47%; /* Justerar övre marginalen för att flytta elementet uppåt */
 }

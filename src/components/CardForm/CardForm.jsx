@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Link } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { Card } from '../Card/Card';
@@ -9,13 +9,18 @@ import ChipDark from '../../assets/chip_dark.png';
 import BlippDark from '../../assets/blipp_dark.png';
 import BitcoinBank from '../../assets/bitcoin.png';
 
+// Skapa och exportera CardForm-komponenten
 export const CardForm = () => {
-  const [number, setNumber] = useState('');
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [vendor, setVendor] = useState(0);
+  const [number, setNumber] = useState(''); // Skapa state för kortnummer och funktion för att uppdatera det
+  const [name, setName] = useState(''); // Skapa state för namn och funktion för att uppdatera det
+  const [date, setDate] = useState(''); // Skapa state för datum och funktion för att uppdatera det
+  const [vendor, setVendor] = useState(0); // Skapa state för leverantör och funktion för att uppdatera det
+  const [ccv, setCcv] = useState(''); // Skapa state för CCV och funktion för att uppdatera det
+  const [isValid, setIsValid] = useState(false);
 
+  // Funktion för att hantera val av vendor
   function handleVendor(e) {
+    // Uppdatera vendorstaten baserat på det valda alternativet
     if (e.target.value === '0') {
       setVendor(0);
     } else if (e.target.value === '1') {
@@ -27,31 +32,10 @@ export const CardForm = () => {
     }
   }
 
-  const handleAddCard = () => {
-    // if (number.length !== 19) {
-    // console.log('Hello');
-    // } else {
-    const defaultCard = CARD_DETAILS[vendor];
-
-    const newCardData = {
-      cardColor: defaultCard.cardColor,
-      cardNumber: number,
-      chip: defaultCard.chip,
-      blipp: defaultCard.blipp,
-      vendor: defaultCard.vendor,
-      name: name,
-      dates: date,
-    };
-
-    updateCardDetails(newCardData);
-    // }
-  };
-
   // Funktion för att hantera inmatning
   const handleCardNumber = (e) => {
     // Ta bort alla icke-siffer-tecken
     const number = e.target.value.replace(/\D/g, '');
-
     // Lägg till mellanslag varje 4:e siffra
     const formattedValue = number.replace(/(\d{4})(?=\d)/g, '$1 ');
 
@@ -67,12 +51,72 @@ export const CardForm = () => {
   };
 
   const handleDate = (e) => {
-    const date = e.target.value;
-    const formattedDate = date.replace(/(\d{4})(?=\d)/g, '$1 ');
+    const inputValue = e.target.value;
+    const lastChar = inputValue[inputValue.length - 1];
 
-    setDate(formattedDate);
+    if (e.keyCode === 8) {
+      // Om användaren trycker på backspace
+      if (inputValue.length === 4) {
+        // Om längden är 4, ta bort allt
+        setDate('');
+      } else if (lastChar === '/') {
+        // Om den sista tecknet är en slash, ta bort alla tecken utom slashen
+        setDate(inputValue.substring(0, inputValue.length - 1));
+      }
+      return;
+    }
+
+    // Ta bort alla icke-siffer-tecken
+    let date = inputValue.replace(/\D/g, '');
+    const month = date.substring(0, 2);
+    if (parseInt(month, 10) > 12) {
+      date = '12' + date.substring(2);
+    } else if (month.length === 2 && parseInt(month, 10) < 1) {
+      date = '01' + date.substring(2);
+    }
+
+    if (date.length > 2) {
+      // Om längden är större än 2, lägg till slash efter de två första siffrorna
+      setDate(`${date.substring(0, 2)}/${date.substring(2)}`);
+    } else {
+      // Annars, visa bara inmatningen
+      setDate(date);
+    }
   };
 
+  const handleCCV = (e) => {
+    const inputValue = e.target.value;
+    // Ta bort alla icke-siffer-tecken och begränsa till maximalt 3 tecken
+    const filteredValue = inputValue.replace(/\D/g, '').substring(0, 3);
+
+    setCcv(filteredValue);
+  };
+
+  // Funktion för att hantera tillägg av kort
+  const handleAddCard = () => {
+    if (number.length === 19 && name !== '' && date !== '') {
+      // Hämta standardkortuppgifter för den valda leverantören
+      const defaultCard = CARD_DETAILS[vendor];
+
+      // Skapa nya kortdata baserat på användarens inmatning
+      const newCardData = {
+        cardColor: defaultCard.cardColor,
+        cardNumber: number,
+        chip: defaultCard.chip,
+        blipp: defaultCard.blipp,
+        vendor: defaultCard.vendor,
+        name: name,
+        dates: date,
+      };
+
+      // Uppdatera kortdetaljerna med den nya kortdatan
+      updateCardDetails(newCardData);
+      setIsValid(true);
+    } else {
+      console.log('Please fill out all fields');
+      setIsValid(false);
+    }
+  };
   return (
     <>
       <Card
@@ -85,20 +129,20 @@ export const CardForm = () => {
         dates={date ? date : 'MM/YY'}
       />
 
-      <form className="card-form">
+      <Form className="card-form" action={isValid ? '/' : '/addCardPage'}>
         <label>card number</label>
         <input
           type="text"
           maxLength={19}
           value={number}
           onChange={handleCardNumber}
+          required
         />
 
         <label>cardholder name</label>
         <input
           type="text"
           value={name}
-          // onChange={(e) => setName(e.target.value)}
           onChange={handleName}
           maxLength={23}
           required
@@ -109,9 +153,7 @@ export const CardForm = () => {
             <label>valid thru</label>
             <input
               type="text"
-              // onChange={handleDate}
               value={date}
-              // onChange={(e) => setDate(e.target.value)}
               onChange={handleDate}
               maxLength={5}
               required
@@ -120,7 +162,13 @@ export const CardForm = () => {
 
           <div className="card-small">
             <label>ccv</label>
-            <input type="text" maxLength={3} required />
+            <input
+              type="text"
+              value={ccv}
+              onChange={handleCCV}
+              maxLength={3}
+              required
+            />
           </div>
         </div>
 
@@ -131,35 +179,11 @@ export const CardForm = () => {
           <option value="2">Blockchain</option>
           <option value="3">Evil</option>
         </select>
-        {/* <input type="submit" name="submit" id="submit" /> */}
-      </form>
 
-      {/* <Link to="/" onClick={handleAddCard}> */}
-      <Link to="/">
-        <Button className="btn btn-dark" onClick={handleAddCard}>
+        <Button className="btn btn-dark" type="submit" onClick={handleAddCard}>
           Add Card
         </Button>
-      </Link>
+      </Form>
     </>
   );
 };
-
-// Regex för space och nummer
-// ^[0-9\s]+$
-
-// Amex Card: ^3[47][0-9]{13}$
-// BCGlobal: ^(6541|6556)[0-9]{12}$
-// Carte Blanche Card: ^389[0-9]{11}$
-// Diners Club Card: ^3(?:0[0-5]|[68][0-9])[0-9]{11}$
-// Discover Card: ^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$
-// Insta Payment Card: ^63[7-9][0-9]{13}$
-// JCB Card: ^(?:2131|1800|35\d{3})\d{11}$
-// KoreanLocalCard: ^9[0-9]{15}$
-// Laser Card: ^(6304|6706|6709|6771)[0-9]{12,15}$
-// Maestro Card: ^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$
-// Mastercard: ^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$
-// Solo Card: ^(6334|6767)[0-9]{12}|(6334|6767)[0-9]{14}|(6334|6767)[0-9]{15}$
-// Switch Card: ^(4903|4905|4911|4936|6333|6759)[0-9]{12}|(4903|4905|4911|4936|6333|6759)[0-9]{14}|(4903|4905|4911|4936|6333|6759)[0-9]{15}|564182[0-9]{10}|564182[0-9]{12}|564182[0-9]{13}|633110[0-9]{10}|633110[0-9]{12}|633110[0-9]{13}$
-// Union Pay Card: ^(62[0-9]{14,17})$
-// Visa Card: ^4[0-9]{12}(?:[0-9]{3})?$
-// Visa Master Card: ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$

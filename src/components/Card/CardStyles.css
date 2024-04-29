@@ -8,8 +8,6 @@
 }
 
 .orangeContainer {
-  /* background-color: #ffae34; */
-  /* background: linear-gradient(to right, #f5c071, #e7ab51, #f39912); */
   background: rgb(255, 209, 140);
   background: linear-gradient(
     106deg,
@@ -20,8 +18,6 @@
 }
 
 .blackContainer {
-  /* background-color: #222222; */
-  /* background: linear-gradient(to right, #4e4e4e, #333333, #1a1919); */
   color: #fff;
   background: rgb(117, 117, 117);
   background: linear-gradient(
@@ -33,13 +29,11 @@
 }
 
 .purpleContainer {
-  /* background-color: #8b58f9; */
+  background-color: #8b58f9;
   background: linear-gradient(to right, #a680f7, #8858f0, #773cf5);
 }
 
 .redContainer {
-  /* background-color: #f33355; */
-  /* background: linear-gradient(to right, #f08094, #f85a77, #f33355); */
   background: rgb(255, 138, 159);
   background: linear-gradient(
     101deg,

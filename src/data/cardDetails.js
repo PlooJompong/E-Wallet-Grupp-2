@@ -1,3 +1,4 @@
+// Importera bilder från assets-mappen för olika kortkomponenter
 import Chip from "../assets/chip.png";
 import BlippDark from "../assets/blipp_dark.png";
 import BlippLight from "../assets/blipp_light.png";
@@ -5,16 +6,14 @@ import Bitcoin from "../assets/bitcoin.png";
 import Ninja from "../assets/ninja.png";
 import BlockChain from "../assets/chain.png";
 import Evil from "../assets/evil.png";
-// import BitcoinBank from '../assets/vendors/bitcoininc.png';
-// import NinjaBank from '../assets/vendors/ninjabank.png';
-// import BlockChainBank from '../assets/vendors/blockchaininc.png';
-// import EvilBank from '../assets/vendors/evilcorp.png';
 
+// Funktion för att uppdatera CARD_DETAILS-arrayen med ny kortdata.
 export const updateCardDetails = (newCardData) => {
   // Uppdatera CARD_DETAILS-arrayen med den nya datan
   CARD_DETAILS.push(newCardData);
 };
 
+// En array som innehåller detaljer för olika kort
 export const CARD_DETAILS = [
   {
     cardColor: "orangeContainer",
@@ -22,7 +21,6 @@ export const CARD_DETAILS = [
     chip: Chip,
     blipp: BlippDark,
     vendor: Bitcoin,
-    // vendor: "./",
     name: "Rachel Richter",
     dates: "12/24",
   },
