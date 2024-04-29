@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import './CardStyles.css';
+import "./CardStyles.css";
 
 export const Card = ({
   cardColor,

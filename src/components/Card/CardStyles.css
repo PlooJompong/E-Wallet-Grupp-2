@@ -8,13 +8,27 @@
 
 .orangeContainer {
   /* background-color: #ffae34; */
-  background: linear-gradient(to right, #f5c071, #e7ab51, #f39912);
+  /* background: linear-gradient(to right, #f5c071, #e7ab51, #f39912); */
+  background: rgb(255, 209, 140);
+  background: linear-gradient(
+    106deg,
+    rgba(255, 209, 140, 1) 0%,
+    rgba(255, 176, 57, 1) 50%,
+    rgba(254, 115, 0, 1) 100%
+  );
 }
 
 .blackContainer {
   /* background-color: #222222; */
-  background: linear-gradient(to right, #4e4e4e, #333333, #1a1919);
+  /* background: linear-gradient(to right, #4e4e4e, #333333, #1a1919); */
   color: #fff;
+  background: rgb(117, 117, 117);
+  background: linear-gradient(
+    106deg,
+    rgba(117, 117, 117, 1) 0%,
+    rgba(101, 101, 101, 1) 50%,
+    rgba(26, 25, 25, 1) 100%
+  );
 }
 
 .purpleContainer {
@@ -24,7 +38,14 @@
 
 .redContainer {
   /* background-color: #f33355; */
-  background: linear-gradient(to right, #f08094, #f85a77, #f33355);
+  /* background: linear-gradient(to right, #f08094, #f85a77, #f33355); */
+  background: rgb(255, 138, 159);
+  background: linear-gradient(
+    101deg,
+    rgba(255, 138, 159, 1) 0%,
+    rgba(255, 72, 104, 1) 50%,
+    rgba(255, 5, 49, 1) 100%
+  );
 }
 
 .greyContainer {
