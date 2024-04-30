@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom';
-import Card from '../components/Card';
+// Importera CSS-stilen för den här sidan från index.css i överordnade mappen.
+import { Top } from '../components/Top/Top.jsx';
+import { CardForm } from '../components/CardForm/CardForm.jsx';
+import '../index.css';
 
-function AddCardPage() {
+export const AddCardPage = () => {
   return (
-    <>
-      <h1>AddCard</h1>
-      <Card />
-      <Link to="/">
-        <button>Go to Home</button>
-      </Link>
-    </>
+    // Returnera JSX för att rendera innehållet på sidan.
+    <div className="body-container">
+      {/* Rendera Top-komponenten med specifika prop-värden för titel och aktivt kort. */}
+      <Top title={'Add A New  Bank Card'} activeCard={'New Card'} />
+      {/* Rendera CardForm-komponenten för att visa ett formulär för att lägga till kort. */}
+      <CardForm />
+    </div>
   );
-}
-
-export default AddCardPage;
+};

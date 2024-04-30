@@ -1,0 +1,39 @@
+/* Importera Google Fonts för att använda 'PT Mono' och 'Source Sans 3' typsnittsfamiljer */
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Variabler för typsnittsstorlekar och familjer */
+:root {
+  --font-size-text: 0.75rem;
+  --font-size-title: 1.125rem;
+  --ff-primary: 'PT Mono', monospace, sans-serif;
+  --ff-top: 'Source Sans 3', sans-serif;
+}
+
+/* Globala regler för alla element */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+}
+
+/* Stil för rot-elementet med id 'root' */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+/* Stil för container-elementet med klassen 'body-container' */
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 9px;
+  padding: 5px;
+  box-shadow: 20px 10px 40px #b9b8b8;
+}

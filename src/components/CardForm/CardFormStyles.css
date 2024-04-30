@@ -1,0 +1,35 @@
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 382px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.card-form input,
+.card-form select {
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.card-form input {
+  margin-bottom: 15px;
+}
+
+.card-form input:focus {
+  outline: none;
+}
+
+.card-form label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+  color: rgb(0, 0, 0, 0.8);
+}
+
+.card-big {
+  display: flex;
+  justify-content: space-between;
+}

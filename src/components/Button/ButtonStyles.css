@@ -1,0 +1,21 @@
+.btn {
+  font-family: var(--ff-top);
+  width: 382px;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  background-color: white;
+  cursor: pointer;
+  margin: 40px 0;
+}
+
+.btn-dark {
+  background-color: black;
+  color: white;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 5px #9b9b9b;
+}

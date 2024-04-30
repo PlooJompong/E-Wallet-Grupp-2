@@ -1,0 +1,99 @@
+.card {
+  width: 382px;
+  height: 241px;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.orangeContainer {
+  background: rgb(255, 209, 140);
+  background: linear-gradient(
+    106deg,
+    rgba(255, 209, 140, 1) 0%,
+    rgba(255, 176, 57, 1) 50%,
+    rgba(254, 115, 0, 1) 100%
+  );
+}
+
+.blackContainer {
+  color: #fff;
+  background: rgb(117, 117, 117);
+  background: linear-gradient(
+    106deg,
+    rgba(117, 117, 117, 1) 0%,
+    rgba(101, 101, 101, 1) 50%,
+    rgba(26, 25, 25, 1) 100%
+  );
+}
+
+.purpleContainer {
+  background-color: #8b58f9;
+  background: linear-gradient(to right, #a680f7, #8858f0, #773cf5);
+}
+
+.redContainer {
+  background: rgb(255, 138, 159);
+  background: linear-gradient(
+    101deg,
+    rgba(255, 138, 159, 1) 0%,
+    rgba(255, 72, 104, 1) 50%,
+    rgba(255, 5, 49, 1) 100%
+  );
+}
+
+.greyContainer {
+  background-color: #d0d0d0;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons-flex-dir {
+  display: flex;
+  flex-direction: column;
+}
+
+.blipp {
+  width: 44px;
+  height: 44px;
+}
+
+.chip {
+  width: 50px;
+  height: 40px;
+}
+
+.vendor {
+  width: 30px;
+  height: 35px;
+}
+
+.card-info-section {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.card-number {
+  font-size: 1.813rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-dates {
+  text-align: end;
+}
+
+.card-name,
+.dates {
+  font-size: var(--font-size-title);
+}
+
+.cardholder-name,
+.valid-date {
+  font-size: var(--font-size-text);
+}
