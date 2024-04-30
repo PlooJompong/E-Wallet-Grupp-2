@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-import '../index.css';
 // Importera Link-komponenten från 'react-router-dom' för att hantera länkar
 import { Link } from 'react-router-dom';
 import { Top } from '../components/Top/Top.jsx';
 import { CardStacks } from '../components/CardStacks/CardStacks.jsx';
 import { Button } from '../components/Button/Button.jsx';
+import '../index.css';
 
 export const HomePage = () => {
   return (

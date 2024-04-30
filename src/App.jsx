@@ -5,10 +5,10 @@ import { NotFoundPage } from './pages/NotFoundPage';
 
 // Definiera olika rutter med tillhörande komponenter och fallback för felaktiga rutter.
 const router = createBrowserRouter([
-// Definiera huvudsidan ("/") med komponenten HomePage och fallback till NotFoundPage vid felaktig rutt.
+  // Definiera huvudsidan ("/") med komponenten HomePage och fallback till NotFoundPage vid felaktig rutt.
   { path: '/', element: <HomePage />, errorElement: <NotFoundPage /> },
   {
-// Definiera sidan för att lägga till ett kort ("/addCardPage") med komponenten AddCardPage och fallback till NotFoundPage vid felaktig rutt.
+    // Definiera sidan för att lägga till ett kort ("/addCardPage") med komponenten AddCardPage och fallback till NotFoundPage vid felaktig rutt.
     path: '/addCardPage',
     element: <AddCardPage />,
     errorElement: <NotFoundPage />,

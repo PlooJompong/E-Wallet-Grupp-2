@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { Card } from '../Card/Card';
 import { CARD_DETAILS, updateCardDetails } from '../../data/cardDetails';
-import './CardFormStyles.css';
 import ChipDark from '../../assets/chip_dark.png';
 import BlippDark from '../../assets/blipp_dark.png';
 import BitcoinBank from '../../assets/bitcoin.png';
+import './CardFormStyles.css';
 
 // Skapa och exportera CardForm-komponenten
 export const CardForm = () => {
@@ -42,7 +42,7 @@ export const CardForm = () => {
     setNumber(formattedValue);
   };
 
-    // Funktion för att hantera inmatning av namn på kortinnehavare
+  // Funktion för att hantera inmatning av namn på kortinnehavare
   const handleName = (e) => {
     const name = e.target.value;
     // Ta bort alla tecken som inte är bokstäver eller mellanslag.
@@ -96,7 +96,7 @@ export const CardForm = () => {
 
   // Funktion för att hantera tillägg av kort
   const handleAddCard = () => {
-  // Kontrollera om alla obligatoriska fält är ifyllda för att tillåta tillägg av kort
+    // Kontrollera om alla obligatoriska fält är ifyllda för att tillåta tillägg av kort
     if (number.length === 19 && name !== '' && date !== '') {
       // Hämta standardkortuppgifter för den valda leverantören
       const defaultCard = CARD_DETAILS[vendor];
@@ -127,7 +127,7 @@ export const CardForm = () => {
   // Returnera JSX som representerar komponenten för att lägga till kort
   return (
     <>
-     {/* Rendera en Card-komponent med dynamiska eller statiska kortdetaljer */}
+      {/* Rendera en Card-komponent med dynamiska eller statiska kortdetaljer */}
       <Card
         cardColor={'greyContainer'}
         blipp={BlippDark}
@@ -140,7 +140,7 @@ export const CardForm = () => {
 
       {/* Rendera ett Form-komponent för att hantera inmatning av kortuppgifter */}
       <Form className="card-form" action={isValid ? '/' : '/addCardPage'}>
-      {/* Input-fält för kortnummer med begränsning av längd och format */}
+        {/* Input-fält för kortnummer med begränsning av längd och format */}
         <label>card number</label>
         <input
           type="text"
@@ -162,7 +162,7 @@ export const CardForm = () => {
 
         {/* Div för att organisera fält för utgångsdatum och CCV */}
         <div className="card-big">
-        {/* Input-fält för utgångsdatum (MM/YY) med begränsning av längd och format */}
+          {/* Input-fält för utgångsdatum (MM/YY) med begränsning av längd och format */}
           <div className="card-small">
             <label>valid thru</label>
             <input

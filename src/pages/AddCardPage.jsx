@@ -1,7 +1,7 @@
 // Importera CSS-stilen för den här sidan från index.css i överordnade mappen.
-import '../index.css';
 import { Top } from '../components/Top/Top.jsx';
 import { CardForm } from '../components/CardForm/CardForm.jsx';
+import '../index.css';
 
 export const AddCardPage = () => {
   return (
