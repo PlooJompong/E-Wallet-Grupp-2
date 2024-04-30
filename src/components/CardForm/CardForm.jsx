@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+// Importera nödvändiga komponenter och resurser för CardForm
 import { Form } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
@@ -20,7 +21,7 @@ export const CardForm = () => {
 
   // Funktion för att hantera val av vendor
   function handleVendor(e) {
-    // Uppdatera vendorstaten baserat på det valda alternativet
+    // Uppdatera vendorstaten baserat på det valda alternativet i dropdown menyn
     if (e.target.value === '0') {
       setVendor(0);
     } else if (e.target.value === '1') {
@@ -38,18 +39,17 @@ export const CardForm = () => {
     const number = e.target.value.replace(/\D/g, '');
     // Lägg till mellanslag varje 4:e siffra
     const formattedValue = number.replace(/(\d{4})(?=\d)/g, '$1 ');
-
     setNumber(formattedValue);
   };
 
+    // Funktion för att hantera inmatning av namn på kortinnehavare
   const handleName = (e) => {
     const name = e.target.value;
     // Ta bort alla tecken som inte är bokstäver eller mellanslag.
     const formattedName = name.replace(/[^a-zA-Z\s]/g, '');
-
     setName(formattedName);
   };
-
+  // Funktion för att hantera inmatning av kortets utgångsdatum (MM/YY)
   const handleDate = (e) => {
     const inputValue = e.target.value;
     const lastChar = inputValue[inputValue.length - 1];
@@ -66,8 +66,9 @@ export const CardForm = () => {
       return;
     }
 
-    // Ta bort alla icke-siffer-tecken
+    // Ta bort alla icke-siffer-tecken i inmatningen
     let date = inputValue.replace(/\D/g, '');
+    // Kontrollera giltigheten av månaden (1-12)
     const month = date.substring(0, 2);
     if (parseInt(month, 10) > 12) {
       date = '12' + date.substring(2);
@@ -84,6 +85,7 @@ export const CardForm = () => {
     }
   };
 
+  // Funktion för att hantera inmatning av CCV (kortkontrollsiffror)
   const handleCCV = (e) => {
     const inputValue = e.target.value;
     // Ta bort alla icke-siffer-tecken och begränsa till maximalt 3 tecken
@@ -94,6 +96,7 @@ export const CardForm = () => {
 
   // Funktion för att hantera tillägg av kort
   const handleAddCard = () => {
+  // Kontrollera om alla obligatoriska fält är ifyllda för att tillåta tillägg av kort
     if (number.length === 19 && name !== '' && date !== '') {
       // Hämta standardkortuppgifter för den valda leverantören
       const defaultCard = CARD_DETAILS[vendor];
@@ -111,14 +114,20 @@ export const CardForm = () => {
 
       // Uppdatera kortdetaljerna med den nya kortdatan
       updateCardDetails(newCardData);
+      // Sätt isValid till true eftersom kortuppgifterna är giltiga
       setIsValid(true);
     } else {
+      // Om något av de obligatoriska fälten saknas, logga ett meddelande till konsolen
       console.log('Please fill out all fields');
+      // Sätt isValid till false eftersom kortuppgifterna inte är giltiga
       setIsValid(false);
     }
   };
+
+  // Returnera JSX som representerar komponenten för att lägga till kort
   return (
     <>
+     {/* Rendera en Card-komponent med dynamiska eller statiska kortdetaljer */}
       <Card
         cardColor={'greyContainer'}
         blipp={BlippDark}
@@ -129,7 +138,9 @@ export const CardForm = () => {
         dates={date ? date : 'MM/YY'}
       />
 
+      {/* Rendera ett Form-komponent för att hantera inmatning av kortuppgifter */}
       <Form className="card-form" action={isValid ? '/' : '/addCardPage'}>
+      {/* Input-fält för kortnummer med begränsning av längd och format */}
         <label>card number</label>
         <input
           type="text"
@@ -139,6 +150,7 @@ export const CardForm = () => {
           required
         />
 
+        {/* Input-fält för kortinnehavarens namn med begränsning av längd och format */}
         <label>cardholder name</label>
         <input
           type="text"
@@ -148,7 +160,9 @@ export const CardForm = () => {
           required
         />
 
+        {/* Div för att organisera fält för utgångsdatum och CCV */}
         <div className="card-big">
+        {/* Input-fält för utgångsdatum (MM/YY) med begränsning av längd och format */}
           <div className="card-small">
             <label>valid thru</label>
             <input
@@ -160,6 +174,7 @@ export const CardForm = () => {
             />
           </div>
 
+          {/* Input-fält för CCV (kortkontrollsiffror) med begränsning av längd och format */}
           <div className="card-small">
             <label>ccv</label>
             <input
@@ -172,6 +187,7 @@ export const CardForm = () => {
           </div>
         </div>
 
+        {/* Dropdown-lista för att välja kortleverantör */}
         <label>vendor</label>
         <select defaultValue={vendor} onChange={handleVendor} required>
           <option value="0">Bitcoin</option>
@@ -180,6 +196,7 @@ export const CardForm = () => {
           <option value="3">Evil</option>
         </select>
 
+        {/* Knapp för att lägga till kort med onClick-händelse som anropar handleAddCard-funktionen */}
         <Button className="btn btn-dark" type="submit" onClick={handleAddCard}>
           Add Card
         </Button>

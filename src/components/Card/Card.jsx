@@ -32,6 +32,7 @@ export const Card = ({
           <p className="cardholder-name">cardholder name</p>
           <p className="card-name">{name}</p>
         </div>
+       {/* Avsnitt för giltighetsdatum */}
         <div className="card-dates">
           <p className="valid-date">valid thru</p>
           <p className="dates"> {dates} </p>
